@@ -59,7 +59,7 @@ public class LibroService {
             return ConvertirADTO(guardado);
         }catch (Exception e){
             log.error(("El libro no fue registrado" + e.getMessage()));
-            throw new ExceptionLibroNoRegistrado("El libro no fue registrado, intente de nuevo");
+            throw new ExceptionLibroNoRegistrado("El libro no fue registrado, intente de nuevo.");
         }
     }
 
