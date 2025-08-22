@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter @Setter @EqualsAndHashCode @ToString
 public class LibroDTO {
     /**
-     * Campos de la tabla Autores
+     * Campos de la tabla libros
      */
     private Long id;
 
