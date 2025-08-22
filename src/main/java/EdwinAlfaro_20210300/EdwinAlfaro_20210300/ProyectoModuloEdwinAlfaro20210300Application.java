@@ -1,0 +1,13 @@
+package EdwinAlfaro_20210300.EdwinAlfaro_20210300;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ProyectoModuloEdwinAlfaro20210300Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ProyectoModuloEdwinAlfaro20210300Application.class, args);
+	}
+
+}
