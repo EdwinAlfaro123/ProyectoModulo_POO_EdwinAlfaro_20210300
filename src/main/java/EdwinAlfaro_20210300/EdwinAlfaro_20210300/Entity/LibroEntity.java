@@ -8,7 +8,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "LIBROS")
 @Getter @Setter @EqualsAndHashCode
-public class AutoresEntity {
+public class LibroEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_libro")
     @SequenceGenerator(name = "seq_libro", sequenceName = "seq_libro", allocationSize = 1)

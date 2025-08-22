@@ -2,8 +2,8 @@ package EdwinAlfaro_20210300.EdwinAlfaro_20210300.Controller;
 
 import EdwinAlfaro_20210300.EdwinAlfaro_20210300.Exception.ExceptionCampoDuplicados;
 import EdwinAlfaro_20210300.EdwinAlfaro_20210300.Exception.ExceptionLibroNoEncontrado;
-import EdwinAlfaro_20210300.EdwinAlfaro_20210300.MODEL.DTO.AutoresDTO;
-import EdwinAlfaro_20210300.EdwinAlfaro_20210300.Service.AutoresService;
+import EdwinAlfaro_20210300.EdwinAlfaro_20210300.MODEL.DTO.LibroDTO;
+import EdwinAlfaro_20210300.EdwinAlfaro_20210300.Service.LibroService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +17,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AutoresController {
+public class LibroController {
     @Autowired
-    AutoresService service;
+    LibroService service;
 
     @GetMapping("/GET")
-    public List<AutoresDTO> Obtener(){
+    public List<LibroDTO> Obtener(){
         return service.Obtener();
     }
 
     @GetMapping("/GET/{id}")
-    public ResponseEntity<AutoresDTO> ObtenerPorID(@PathVariable Long id){
+    public ResponseEntity<LibroDTO> ObtenerPorID(@PathVariable Long id){
         try{
-            AutoresDTO usuario = service.ObtenerPorID(id);
+            LibroDTO usuario = service.ObtenerPorID(id);
             return ResponseEntity.ok(usuario);
         }catch (ExceptionLibroNoEncontrado e){
             return ResponseEntity.notFound().build();
@@ -37,9 +37,9 @@ public class AutoresController {
     }
 
     @PostMapping("/POST")
-    public ResponseEntity<?> Nuevo(@Valid @RequestBody AutoresDTO dto , HttpServletRequest request){
+    public ResponseEntity<?> Nuevo(@Valid @RequestBody LibroDTO dto , HttpServletRequest request){
         try {
-            AutoresDTO respuesta = service.Insertar(dto);
+            LibroDTO respuesta = service.Insertar(dto);
             if(respuesta == null){
                 return ResponseEntity.badRequest().body(Map.of(
                         "status", "inserccion fallida",
@@ -61,7 +61,7 @@ public class AutoresController {
     }
 
     @PutMapping("/PUT/{id}")
-    public ResponseEntity<?> Modificar(@PathVariable Long id, @Valid @RequestBody AutoresDTO json, BindingResult bindingResult){
+    public ResponseEntity<?> Modificar(@PathVariable Long id, @Valid @RequestBody LibroDTO json, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             Map<String, String> errores = new HashMap<>();
             bindingResult.getFieldErrors().forEach(error ->
@@ -69,7 +69,7 @@ public class AutoresController {
             return ResponseEntity.badRequest().body(errores);
         }
         try {
-            AutoresDTO dto = service.Actualizar(id, json);
+            LibroDTO dto = service.Actualizar(id, json);
             return ResponseEntity.ok(dto);
         }catch (ExceptionLibroNoEncontrado e){
             return ResponseEntity.notFound().build();
