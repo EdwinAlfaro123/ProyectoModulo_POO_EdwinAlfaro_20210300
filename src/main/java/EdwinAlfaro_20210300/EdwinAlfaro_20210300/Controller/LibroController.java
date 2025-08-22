@@ -17,7 +17,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController("/API")
+@RestController
+@RequestMapping("/API")
 public class LibroController {
     @Autowired
     LibroService service;
