@@ -6,11 +6,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+//Haciendo referencia a la tabla para probar la API
 @Table(name = "LIBROS")
 @Getter @Setter @EqualsAndHashCode
 public class LibroEntity {
     @Id
+    //Generacion del valor del ID por medio de una secuencia creada en la base de datos
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_libro")
+    //Generador de la secuencia del ID
     @SequenceGenerator(name = "seq_libro", sequenceName = "seq_libro", allocationSize = 1)
     @Column(name = "ID")
     private Long id;

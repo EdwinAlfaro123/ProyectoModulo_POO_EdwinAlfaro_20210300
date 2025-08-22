@@ -10,6 +10,7 @@ public class ExceptionCampoDuplicados extends RuntimeException {
         super(message);
     }
 
+    //Si un campo sea duplicado mandar un error
     public ExceptionCampoDuplicados(String message, String CampoDuplicado){
         super(message);
         this.CampoDuplicado = CampoDuplicado;
